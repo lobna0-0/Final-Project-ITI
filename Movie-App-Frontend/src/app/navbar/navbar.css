@@ -1,0 +1,38 @@
+.navbar-brand:hover{
+    cursor: pointer;
+}
+
+/* Navbar styles */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Watchlist link and badge */
+.nav-link {
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #555;
+}
+
+.nav-link i {
+  margin-right: 5px;
+}
+
+/* Badge styling */
+.badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+}

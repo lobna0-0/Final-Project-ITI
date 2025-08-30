@@ -1,0 +1,184 @@
+/* Cards  */
+
+.card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+}
+
+.movie-card {
+    height: 400px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Dark Overlay */
+
+.dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.098), rgba(0, 0, 0, 0.523));
+    border-radius: 0.75rem;
+    z-index: 1;
+}
+
+
+/* Pagination */
+
+.pagination {
+    display: flex;
+    gap: 0.375rem;
+    justify-content: center;
+    align-items: center;
+    margin: 1.25rem 0;
+    padding: 0;
+}
+
+.page-item .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.625rem;
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+.page-item .page-link:hover {
+    background-color: #E0C849;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.page-item.active .page-link {
+    background-color: #E0C849;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.page-item.disabled .page-link {
+    background-color: #e0e0e0;
+    color: #aaa;
+    pointer-events: none;
+}
+
+
+/* Fav Button  */
+
+.btn.rounded-circle {
+    background: rgba(255, 255, 255, 0.33);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, background 0.2s ease;
+    z-index: 2;
+}
+
+.btn.rounded-circle:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.15);
+}
+
+
+/*  Fav Icon  */
+
+.favorite-icon-glass i {
+    color: white;
+    transition: color 0.2s ease;
+}
+
+.favorite-icon-glass:hover i {
+    color: #333;
+}
+
+.heart-animate {
+    animation: pop 0.4s ease;
+}
+
+
+/* Card Body  */
+
+.card-title {
+    text-wrap: wrap;
+}
+
+.card-body h6 {
+    font-size: 0.9rem;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.rating {
+    font-size: 1rem;
+    color: #e9c235;
+    font-weight: bold;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.3);
+    }
+    60% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Rating Circle */
+
+.rating-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 13px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border: 3px solid;
+    position: absolute;
+    bottom: -15px;
+    left: 15px;
+    z-index: 2;
+}
+
+.good {
+    border-color: #21d07a;
+}
+
+.medium {
+    border-color: #d2d531;
+}
+
+.bad {
+    border-color: #db2360;
+}

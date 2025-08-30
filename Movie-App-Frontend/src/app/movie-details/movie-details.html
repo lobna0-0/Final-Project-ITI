@@ -1,0 +1,98 @@
+<div class="container py-5" *ngIf="movie">
+    <!-- Movie Card -->
+    <div class="row g-4 align-items-start">
+        <!-- Poster -->
+        <div class="col-md-4 text-center">
+            <img [src]="'/' + movie.imgURL" alt="{{ movie.name }}" class="img-fluid rounded-4 shadow custom-img" />
+        </div>
+
+        <!-- Details -->
+        <div class="col-md-8">
+            <!-- Title + Watchlist -->
+            <div class="d-flex justify-content-between align-items-start mb-2">
+                <h2 class="fw-bold">{{ movie.name }}</h2>
+
+                <!-- Favourite Heart -->
+                <i class="fa-heart fs-4 favourite-heart" [class.fa-regular]="!isFavorite" [class.fa-solid]="isFavorite" (click)="toggleFavourite()"></i>
+            </div>
+
+            <!-- Date -->
+            <div class="mb-2 text-muted">
+                <span>{{ movie.date | date : 'MMM dd, yyyy' }}</span>
+            </div>
+
+            <!-- Rating Stars under Date -->
+            <div class="d-flex align-items-center mb-3 text-dark fs-5">
+                <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                    <i [ngClass]="
+              i < movie.rate ? 'fa-solid fa-star text-dark' : 'fa-regular fa-star text-muted'
+            "></i>
+                </ng-container>
+                <span class="fw-semibold ms-4">{{ movie.watches }}</span>
+            </div>
+
+            <!-- Description -->
+            <p class="text-dark mb-4">{{ movie.description }}</p>
+
+            <!-- Categories -->
+            <div class="mb-3" *ngIf="movie?.categories?.length">
+                <span *ngFor="let category of movie.categories" class="badge bg-warning text-dark me-2" style="padding: 0.5rem 0.8rem; border-radius: 1rem">
+    {{ category }}
+  </span>
+            </div>
+
+
+            <!-- Duration & Language -->
+            <div class="d-flex gap-5 mb-4 mt-4 text-dark">
+                <span><strong>Duration:</strong> {{ movie.duration }} min</span>
+                <span><strong>Language:</strong> {{ movie.language }}</span>
+            </div>
+
+            <!-- Studio -->
+            <div class="mb-3">
+                <img src="https://upload.wikimedia.org/wikipedia/ka/thumb/0/04/MarvelLogo.svg/2560px-MarvelLogo.svg.png" alt="studio logo" height="30" class="me-4">
+                <!-- me-2 = margin-right 0.5rem -->
+                <img src="https://image.tmdb.org/t/p/w200/71BqEFAF4V3qjjMPCpLuyJFB9A.png" alt="studio logo" height="30">
+            </div>
+
+
+            <!-- Website Button -->
+            <a [routerLink]="'/movies'" class="btn">
+
+        Website
+        <i class="fa-solid fa-link me-2"></i>
+      </a>
+        </div>
+    </div>
+
+    <hr />
+
+    <!-- Recommendations -->
+    <div class="recommendations mt-5" *ngIf="recommendations.length > 0">
+        <h4 class="fw-bold text-dark mb-4">Recommendations</h4>
+
+        <div class="d-flex flex-row overflow-auto gap-3 pb-2">
+            <a *ngFor="let rec of recommendations" [routerLink]="['/movies', rec.id]" class="text-decoration-none text-dark flex-shrink-0" style="width: 200px; display: flex; flex-direction: column">
+                <div class="card movie-card border-0 shadow-sm rounded-3" style="display: flex; flex-direction: column">
+                    <!-- Poster -->
+                    <div class="position-relative" style="height: 250px">
+                        <img [src]="'/' + rec.imgURL" class="card-img-top rounded-top-3" alt="{{ rec.name }}" style="width: 100%; height: 100%; object-fit: cover" />
+
+                        <!-- Rating Circle -->
+                        <span class="rating-circle" [ngClass]="getRatingClass(rec.watchRate)">
+              {{ rec.watchRate }}%
+            </span>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="card-body text-center" style="flex: 1">
+                        <h6 class="card-title fw-bold mb-1">{{ rec.name }}</h6>
+                        <p class="text-muted mb-0" style="font-size: 0.85rem">
+                            {{ rec.date ? (rec.date | date : 'MMM dd, yyyy') : 'Coming Soon' }}
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

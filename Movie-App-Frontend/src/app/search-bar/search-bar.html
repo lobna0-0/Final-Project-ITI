@@ -1,0 +1,14 @@
+<div class="search-section">
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" [(ngModel)]="searchQuery" (input)="onInput()" (keypress)="onEnter($event)" placeholder="Search for movies..." class="search-input" />
+            <button (click)="onClick()" class="search-button">Search</button>
+        </div>
+    </div>
+    <div class="search-results-text" *ngIf="searchQuery && searchQuery.trim()">
+        Search Results for: {{ searchQuery }}
+    </div>
+    <div class="popular-movies-text" *ngIf="!searchQuery || !searchQuery.trim()">
+        Popular Movies
+    </div>
+</div>

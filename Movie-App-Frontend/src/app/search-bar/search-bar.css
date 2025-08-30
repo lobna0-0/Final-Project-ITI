@@ -1,0 +1,60 @@
+.search-section {
+    margin-bottom: 24px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.search-box {
+    display: flex;
+    gap: 12px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: #FFFFFF;
+}
+
+.search-input::placeholder {
+    color: #666666;
+}
+
+.search-input:focus {
+    border-color: #FFD700;
+}
+
+.search-button {
+    padding: 10px 16px;
+    background-color: #FFD700;
+    color: #000000;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #FFC700;
+}
+
+.search-results-text,
+.popular-movies-text {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 16px;
+}

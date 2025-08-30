@@ -1,0 +1,78 @@
+.poster {
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.custom-img {
+  height: 400px;     
+  width: auto;         
+  object-fit: cover;   
+}
+
+
+.production-logo {
+  height: 40px;
+  max-width: 100px;
+  object-fit: contain;
+}
+
+.movie-card {
+  border: none;
+  background: #f8f9fa;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.movie-card img {
+  border-radius: 10px;
+}
+
+/* Rating Circle */
+.rating-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 13px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border: 3px solid;
+  position: absolute;
+  bottom: -15px;
+  left: 15px;
+}
+
+.good {
+  border-color: #21d07a ;
+}
+
+.medium {
+  border-color: #d2d531;
+}
+
+.bad {
+  border-color: #db2360;
+}
+
+
+.btn {
+    border: 1px solid #d2d531;
+    border-radius: 75px;
+}
+
+/* movie-details.css */
+.favourite-heart {
+  cursor: pointer;
+  color: yellow; /* لون القلب (الحدود أو الداخل) */
+}
+
+
+hr {
+    margin-top: 30px;
+    color: #808080;
+}

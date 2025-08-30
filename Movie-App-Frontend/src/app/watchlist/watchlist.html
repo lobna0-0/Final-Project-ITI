@@ -1,0 +1,46 @@
+<div class="container-sm">
+  <h4 class="fw-bold mt-4 mb-4">Watch list</h4>
+
+  @if (favoriteMovies.length > 0) {
+    <div class="row g-3">
+      @for (movie of favoriteMovies; track movie.id) {
+        <div class="col-12">
+          <div class="card movie-card p-3 d-flex flex-row align-items-start">
+            
+            <img [src]="movie.imgURL" class="poster me-3" [alt]="movie.name">
+
+            <div class="flex-grow-1">
+              <h5 class="fw-bold mb-1">{{ movie.name }}</h5>
+              <small class="text-muted d-block mb-2">{{ movie.date | date:'MMM d, y' }}</small>
+              
+              <div class="d-flex align-items-center mb-2">
+                <div class="rating-stars">
+                  <i class="fa-solid fa-star" *ngFor="let star of [1,2,3,4,5]" 
+                    [ngClass]="{'active': star <= movie.rate}"></i>
+                </div>
+                <span class="ms-2 text-muted">{{ movie.rate }}</span>
+              </div>
+              
+              <p class="text-muted mb-0 description">
+                {{ movie.description || 'No description available.' }}
+              </p>
+            </div>
+
+            <button type="button" class="btn-favorite ms-3"
+              (click)="removeFromWatchlist(movie.id, $event)"
+              [class.active]="isFavorite(movie.id)">
+              <i class="fa-solid fa-heart"></i>
+            </button>
+
+          </div>
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="text-center py-5">
+      <img src="/images/icon _heart slash_.png" alt="Empty watchlist" width="100">
+      <h5 class="mt-3">No Movies in watch list</h5>
+      <a routerLink="/movies" class="btn btn-warning mt-2">Back to home</a>
+    </div>
+  }
+</div>
